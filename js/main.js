@@ -7,14 +7,20 @@ const loadData =city=>{
 }
 
 const displayTemperature = data =>{
-    console.log(data.main.temp);
+    console.log(data);
     const temperature = document.getElementById('temperature');
     temperature.innerText = data.main.temp
-}
 
+    // conditon innerText set
+    const conditonElement = document.getElementById('condition')
+    conditonElement.innerText = data.weather[0].main
+
+}
 document.getElementById('btn-search').addEventListener('click',function(){
     const searchFiled = document.getElementById('search-filed')
     const city = searchFiled.value;
+    searchFiled.value = ''
+    document.getElementById('cityName').innerText = city;
     loadData(city)
 })
 
